@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :levels
   resources :subjects
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :parents, :controllers => {
+     registrations: 'parents/registrations'
+   }
+
 end
