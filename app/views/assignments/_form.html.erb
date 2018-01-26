@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+<div class="field">
+  <%= form.label :level%>
+  <%= collection_select(:assignment, :level_id, Level.all, :id, :name_with_state) %>
+</div>
+
+<div class="field">
+  <%= form.label :subject%>
+  <%= collection_select(:assignment, :subject_id, Subject.all, :id, :name_with_state) %>
+</div>
+
   <div class="field">
     <%= form.label :content %>
     <%= form.text_field :content, id: :assignment_content %>
