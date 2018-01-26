@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126102004) do
+ActiveRecord::Schema.define(version: 20180126104548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20180126102004) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "level_id"
+    t.index ["level_id"], name: "index_streams_on_level_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -117,5 +119,6 @@ ActiveRecord::Schema.define(version: 20180126102004) do
   add_foreign_key "assignments", "subjects"
   add_foreign_key "exams", "levels"
   add_foreign_key "exams", "subjects"
+  add_foreign_key "streams", "levels"
   add_foreign_key "students", "dormitories"
 end
