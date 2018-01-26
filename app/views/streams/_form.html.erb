@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :level%>
+    <%= collection_select(:stream, :level_id, Level.all, :id, :name_with_state) %>
+  </div>
+  
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :stream_name %>
   </div>
