@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= form.label :Dormitory %>
-        <%= collection_select(:student, :dormitory_id, Dormitory.all, :id, :name_with_state) %>
+    <%= collection_select(:student, :dormitory_id, Dormitory.all, :id, :name_with_state) %>
   </div>
   <div class="actions">
     <%= form.submit %>
