@@ -1,6 +1,7 @@
 class Level < ApplicationRecord
   has_many :exams
   has_many :assignments
+  has_many :streams
   
   private
 
