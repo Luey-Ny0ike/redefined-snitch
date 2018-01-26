@@ -17,6 +17,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :subject %>
+    <%= collection_select(:exam, :subject_id, Subject.all, :id, :name_with_state) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Level %>
+    <%= collection_select(:exam, :level_id, Level.all, :id, :name_with_state) %>
+  </div>
+
+  <div class="field">
     <%= form.label :date %>
     <%= form.text_field :date, id: :exam_date %>
   </div>
