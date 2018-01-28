@@ -35,6 +35,15 @@ class StudentsController < ApplicationController
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
+
+    @me = params[:student][:subject_ids]
+
+  if @me == nil
+  else
+      @subject  = Subject.find(@me)
+
+      @student.update(subjects: @subject)
+  end
   end
 
   # PATCH/PUT /students/1
@@ -49,6 +58,16 @@ class StudentsController < ApplicationController
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
+
+
+  @me = params[:student][:subject_ids]
+
+if @me == nil
+else
+    @subject  = Subject.find(@me)
+
+    @student.update(subjects: @subject)
+end
   end
 
   # DELETE /students/1
@@ -69,6 +88,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :admission_number, :dormitory_id)
+      params.require(:student).permit(:name, :admission_number, :dormitory_id, :subject_ids)
     end
 end
