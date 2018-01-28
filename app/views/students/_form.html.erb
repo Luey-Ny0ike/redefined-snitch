@@ -20,6 +20,12 @@
     <%= form.label :admission_number %>
     <%= form.text_field :admission_number, id: :student_admission_number %>
   </div>
+
+  <div class="field">
+    <%= form.label :subjects %>
+    <%= hidden_field_tag "subject_ids", :value => nil %>
+    <%= collection_check_boxes(:student, :subject_ids, Subject.all, :id, :name_with_state, include_hidden: false) %>
+  </div>
   <div class="field">
     <%= form.label :Dormitory %>
     <%= collection_select(:student, :dormitory_id, Dormitory.all, :id, :name_with_state) %>
